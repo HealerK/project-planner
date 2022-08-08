@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Welcome Index Page Site",
+      "detail": "lorem is very bad",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "title": "Welcome About Page Site",
+      "detail": "lorem is very good",
+      "complete": false
+    },
+    {
+      "title": "Hello World",
+      "detail": "balh balh balh",
+      "complete": false,
+      "id": 3
+    }
+  ]
+}
