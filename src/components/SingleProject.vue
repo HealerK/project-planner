@@ -1,10 +1,12 @@
 <template>
-  <div class="project" :class="{complete: project.complete}">
+  <div class="project" :class="{ complete: project.complete }">
     <div class="actions">
       <h3 @click="showDetail = !showDetail">{{ project.title }}</h3>
       <div class="icons">
         <i @click="completeProject" class="fa-solid fa-check tick"></i>
-        <i class="fa-solid fa-pen-to-square"></i>
+        <router-link :to="{name: 'EditProject',  params:{id: project.id} }">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </router-link>
         <i @click="deleteProject" class="fa-solid fa-trash"></i>
       </div>
     </div>
@@ -35,9 +37,11 @@ export default {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ complete: !this.project.complete }),
-      }).then(()=> {
-        this.$emit('complete',this.project.id)
-      }).catch(err=>console.log(err))
+      })
+        .then(() => {
+          this.$emit("complete", this.project.id);
+        })
+        .catch((err) => console.log(err));
     },
   },
 };
@@ -71,11 +75,11 @@ h3 {
   color: #777;
 }
 
-.project.complete{
-    border-left: 4px solid  #00e908;
+.project.complete {
+  border-left: 4px solid #00e908;
 }
 
-.project.complete .tick{
-    color: #00e908;
+.project.complete .tick {
+  color: #00e908;
 }
 </style>
